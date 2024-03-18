@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Datos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="UNIDOS.jpg">
+       
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous"> 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    </head>
+    <body>
+        
+        <div class="container">      
+            <nav class="navbar navbar-expand-lg bg-light navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">CONTACTOS</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" th:href="@{/}"><i class="bi bi-person-lines-fill"></i> Registro</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" th:href="@{/lista}"><i class="bi bi-card-checklist"></i> Listado</a>
+                            </li>
+                           
+                        </ul>
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                            <button class="btn btn-outline-success" type="button">Buscar</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+
+        <hr>  
+        <div class="alert alert-info" role="alert">
+            TABLA DE DATOS
+        </div>
+        <hr>
+        <table class="table table-striped">
+            <tr class="table-dark">
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Celular</th>
+                <th>Correo</th>
+                <th>Accesorios</th>
+            </tr>
+            <tr th:each="persona : ${personas}"> <!-- lo que hace theach es recorrer el array -->
+                <td th:text="${persona.nombre}"></td>
+                <td th:text="${persona.apellido}"></td>
+                <td th:text="${persona.celular}"></td>
+                <td th:text="${persona.correo}"></td>
+                <td></td>
+            </tr>       
+        </table>
+        </div>
+    </body>
+</html>
